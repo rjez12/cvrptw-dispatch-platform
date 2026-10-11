@@ -5,7 +5,8 @@ import com.optimizarutas.domain.Vehiculo;
 import com.optimizarutas.presentation.FormatoHora;
 import com.optimizarutas.domain.Ubicacion;
 import com.optimizarutas.domain.Deposito;
-
+import com.optimizarutas.domain.Escenario;
+import java.util.List;
 import java.time.LocalTime;
 
 public class Main {
@@ -53,5 +54,16 @@ public class Main {
         System.out.println("Deposito: " + deposito.getId());
         System.out.println("Ubicación: " + deposito.getUbicacion().getLatitud()
         + " - " + deposito.getUbicacion().getLongitud());
+
+        Escenario escenario = new Escenario(
+                "ESC-0123",
+                deposito,
+                List.of(vehiculo),
+                List.of(pedido)
+        );
+        System.out.println("Escenario: " + escenario.getId());
+        System.out.println("Deposito: " + escenario.getDeposito().getId());
+        System.out.println("Vehiculo: " + escenario.getVehiculos().size());
+        System.out.println("Pedido: " + escenario.getPedidos().size());
     }
 }
