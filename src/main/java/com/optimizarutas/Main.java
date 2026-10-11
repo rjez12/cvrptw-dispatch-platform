@@ -3,7 +3,7 @@ package com.optimizarutas;
 import com.optimizarutas.domain.Pedido;
 import com.optimizarutas.domain.Vehiculo;
 import com.optimizarutas.presentation.FormatoHora;
-
+import com.optimizarutas.domain.Ubicacion;
 
 import java.time.LocalTime;
 
@@ -13,6 +13,7 @@ public class Main {
        FormatoHora formatoHora = FormatoHora.DOCE_HORAS;
        Pedido pedido = new Pedido(
                "A",
+               new Ubicacion(12.1364, -86.2514),
                3,
                LocalTime.of(8, 20),
                LocalTime.of(8, 50),
