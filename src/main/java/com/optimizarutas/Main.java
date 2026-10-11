@@ -4,6 +4,7 @@ import com.optimizarutas.domain.Pedido;
 import com.optimizarutas.domain.Vehiculo;
 import com.optimizarutas.presentation.FormatoHora;
 import com.optimizarutas.domain.Ubicacion;
+import com.optimizarutas.domain.Deposito;
 
 import java.time.LocalTime;
 
@@ -44,5 +45,13 @@ public class Main {
                         + " - "
                         + formatoHora.formatear(vehiculo.getFinJornada())
         );
+
+        Deposito deposito = new Deposito(
+                "DEP-0123",
+                new Ubicacion(87.0923, -153.98)
+        );
+        System.out.println("Deposito: " + deposito.getId());
+        System.out.println("Ubicación: " + deposito.getUbicacion().getLatitud()
+        + " - " + deposito.getUbicacion().getLongitud());
     }
 }
