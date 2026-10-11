@@ -4,6 +4,7 @@ import java.time.LocalTime;
 
 public class Pedido {
 
+    private final Ubicacion ubicacion;
     private final String id;
     private final int demanda;
     private final LocalTime inicioVentana;
@@ -29,11 +30,13 @@ public class Pedido {
     public int getDuracionServicioSegundos() {
         return duracionServicioSegundos;
     }
-
-
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
 
     public Pedido(
             String id,
+            Ubicacion ubicacion,
             int demanda,
             LocalTime inicioVentana,
             LocalTime finVentana,
@@ -64,11 +67,17 @@ public class Pedido {
                     "El tiempo total del servicio no puede ser 0 ni menor que este."
             );
         }
+        if (ubicacion == null) {
+            throw new IllegalArgumentException(
+                    "La ubicación del pedido es obligatoria."
+            );
+        }
 
         this.id = id.trim();
         this.demanda = demanda;
         this.inicioVentana = inicioVentana;
         this.finVentana = finVentana;
         this.duracionServicioSegundos = duracionServicioSegundos;
+        this.ubicacion = ubicacion;
     }
 }
