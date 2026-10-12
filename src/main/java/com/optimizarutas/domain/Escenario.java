@@ -45,20 +45,21 @@ public class Escenario {
                         "La lista de vehiculos no puede estar vacía"
                 );
             }
-            if (idsVehiculos.add(vehiculo.getId())) {
+            if (!idsVehiculos.add(vehiculo.getId())) {
                 throw new IllegalArgumentException(
-                        "ID de vehiculo duplicado" + vehiculo.getId()
+                        "ID de vehiculo duplicado: " + vehiculo.getId()
                 );
             }
         }
 
+        Set<String> idsPedidos = new HashSet<>();
         for  (Pedido pedido : pedidos) {
             if (pedido == null) {
                 throw new   IllegalArgumentException(
                         "La lista de pedidos no puede estar vacía"
                 );
             }
-            if (idsVehiculos.add(pedido.getId())) {
+            if (!idsPedidos.add(pedido.getId())) {
                 throw new IllegalArgumentException(
                         "ID de pedido duplicado" + pedido.getId()
                 );
