@@ -6,6 +6,7 @@ import com.optimizarutas.presentation.FormatoHora;
 import com.optimizarutas.domain.Ubicacion;
 import com.optimizarutas.domain.Deposito;
 import com.optimizarutas.domain.Escenario;
+import com.optimizarutas.domain.Ruta;
 import java.util.List;
 import java.time.LocalTime;
 
@@ -65,5 +66,24 @@ public class Main {
         System.out.println("Deposito: " + escenario.getDeposito().getId());
         System.out.println("Vehiculo: " + escenario.getVehiculos().size());
         System.out.println("Pedido: " + escenario.getPedidos().size());
+
+        Ruta ruta  = new Ruta(
+                vehiculo,
+                deposito,
+                List.of(pedido)
+        );
+
+     System.out.println("Vehiculo: " + ruta.getVehiculo().getId());
+     System.out.println("Salida: " + ruta.getDeposito().getId());
+
+     int posicion = 1;
+
+     for (Pedido parada: ruta.getPedidos()) {
+      System.out.println("Parada " + posicion + ":" + parada.getId() );
+
+      posicion++;
+     }
+
+     System.out.println("Regreso: " + ruta.getDeposito().getId());
     }
 }
